@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>YoyBuy spreadsheet – produktlänkar, storlekar och QC</title>
+  <meta name="description" content="Svensk guide till YoyBuy spreadsheet. Bläddra bland CAFANS kategorier och jämför produktlänkar, storlekar, QC-bilder och frakt till Sverige.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:title" content="YoyBuy spreadsheet – från produktlänk till paket">
+  <meta property="og:description" content="Jämför produktlänkar, mått och QC-bilder innan du väljer frakt.">
+  <meta name="theme-color" content="#eef0e7">
+  <style>
+    :root{color-scheme:light;--paper:#eef0e7;--ink:#20251e;--muted:#4e564b;--line:#bbc2b4;--red:#912d24;--white:#fafbf6}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.6 system-ui,sans-serif}
+    .wrap{width:min(1120px,92%);margin-inline:auto}
+    a{color:inherit}
+    a:focus-visible,summary:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+    .bar,footer{padding:1rem 0;border-block-end:1px solid var(--line)}
+    .bar .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .brand{font-weight:850;text-decoration:none}
+    .note,figcaption,footer{color:var(--muted);font-size:.875rem}
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.25rem,4vw,4rem);align-items:center;padding:2.5rem 0 1.5rem}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2{font-family:Georgia,serif;font-weight:600;line-height:1.04}
+    h1{font-size:clamp(2.8rem,7.5vw,6.5rem);letter-spacing:-.055em;overflow-wrap:anywhere}
+    h2{font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.035em;margin-bottom:1rem}
+    h3{font-size:1.1rem}
+    p{margin-top:.65rem}
+    .lead{max-width:49ch;margin:1rem 0 1.25rem}
+    .button{display:inline-block;padding:.65rem 1rem;background:var(--red);color:#fff;font-weight:700;text-decoration:none}
+    img{display:block;width:100%;height:auto;background:#dedfd5}
+    .hero img{aspect-ratio:16/10;object-fit:cover}
+    figcaption{padding:.45rem .1rem}
+    section{padding-block:1.6rem;border-top:1px solid var(--line)}
+    ul,ol{padding-inline-start:1.25rem;margin:.65rem 0 0}
+    .categories{list-style:none;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.5rem}
+    .categories a{display:flex;align-items:center;min-height:44px;padding:.45rem .65rem;background:var(--white);border:1px solid var(--line);font-weight:650;text-decoration:none}
+    .categories a:hover,.brand:hover{text-decoration:underline}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    article{background:var(--white);padding:1.1rem;border:1px solid var(--line)}
+    .gallery{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .gallery img{aspect-ratio:1;object-fit:contain;background:var(--white)}
+    details{border-top:1px solid var(--line);padding:.65rem 0}
+    summary{cursor:pointer;font-weight:700;padding:.25rem 0}
+    details p{max-width:70ch}
+    footer{border-block-start:1px solid var(--line);border-block-end:0}
+    @media(max-width:760px){.categories{grid-template-columns:repeat(3,minmax(0,1fr))}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:540px){.hero,.grid:not(.gallery){grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "inLanguage":"sv",
+    "name":"YoyBuy spreadsheet",
+    "mainEntity":[
+      {"@type":"Question","name":"Vad är ett YoyBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"Det är en sammanställning av produktlänkar och anteckningar som hjälper dig att hitta och jämföra varor. Kontrollera alltid den aktuella varianten i säljarens annons."}},
+      {"@type":"Question","name":"Hur kontrollerar jag storleken före köp?","acceptedAnswer":{"@type":"Answer","text":"Mät ett plagg eller en sko som passar och jämför måtten i centimeter med säljarens tabell för den variant du valt."}},
+      {"@type":"Question","name":"Vad visar QC-bilder från lagret?","acceptedAnswer":{"@type":"Answer","text":"De kan visa synliga detaljer som färg, etiketter och sömmar. För äkthet behövs separat dokumentation från en tillförlitlig källa."}},
+      {"@type":"Question","name":"Hur jämför jag frakt till Sverige?","acceptedAnswer":{"@type":"Answer","text":"Ange Sverige som destination och jämför alternativ med paketets vikt och yttermått. Kontrollera vilka avgifter som ingår och vad som kan tillkomma vid import."}}
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/oabvo/">
+</head>
+<body>
+  <!-- index.html | Googles första resultatsida kunde inte verifieras. Underlag: yoybuyindex.com/en/spreadsheet, yoybuysheet.com och Yoybuys hjälpcenter om agentavgifter. -->
+  <header class="bar">
+    <div class="wrap">
+      <a class="brand" href="https://www.cafans.com">www.cafans.com</a>
+      <span class="note">Oberoende köpguide på svenska</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div>
+        <h1>YoyBuy spreadsheet</h1>
+        <p class="lead">En guide för dig som vill jämföra produktlänkar, hitta rätt storlek och granska varan före leverans. Börja bland CAFANS kategorier och spara de uppgifter du behöver för att jämföra dina val.</p>
+        <a class="button" href="https://www.cafans.com">Bläddra på CAFANS</a>
+      </div>
+      <figure>
+        <img src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2018%2F10%2Fnike-air-max-1-anniversary-university-red-release-date-0.jpg?cbr=1&amp;fit=max&amp;q=80&amp;w=800" width="800" height="500" loading="eager" fetchpriority="high" alt="Nike Air Max 1 Anniversary i vitt, grått och rött">
+        <figcaption>Nike Air Max 1 Anniversary · Bildkälla Hypebeast</figcaption>
+      </figure>
+    </div>
+
+    <section aria-labelledby="categories">
+      <h2 id="categories">Handla efter kategori</h2>
+      <nav aria-label="Produktkategorier på CAFANS">
+        <ul class="categories">
+          <li><a href="https://cafans.com/category-911-Shoes.html">Skor</a></li>
+          <li><a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Huvtröjor och tröjor</a></li>
+          <li><a href="https://cafans.com/category-913-T-Shirts.html">T-shirts</a></li>
+          <li><a href="https://cafans.com/category-914-Jackets.html">Jackor</a></li>
+          <li><a href="https://cafans.com/category-915-Pants%2FShorts.html">Byxor och shorts</a></li>
+          <li><a href="https://cafans.com/category-916-Headwear.html">Huvudbonader</a></li>
+          <li><a href="https://cafans.com/category-917-Sets.html">Klädset</a></li>
+          <li><a href="https://cafans.com/category-918-underwear%2Funderpants.html">Underkläder</a></li>
+          <li><a href="https://cafans.com/category-919-Jersey.html">Matchtröjor</a></li>
+          <li><a href="https://cafans.com/category-920-Accessories.html">Accessoarer</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <section aria-labelledby="guide">
+      <h2 id="guide">Från produktlänk till paket</h2>
+      <div class="grid">
+        <article>
+          <h3>YoyBuy produktlänkar och val av variant</h3>
+          <p>Spara originalannonsen från säljaren, produktens modellnummer och datumet då du kontrollerade länken. Kontrollera aktuellt lagersaldo, säljarens storlekstabell och färgval i annonsen. En rad i ditt YoyBuy spreadsheet kan gälla en annan storlek eller färg än den som visas först.</p>
+        </article>
+        <article>
+          <h3>Storleksguide för sneakers och kläder</h3>
+          <p>Jämför fotlängd i centimeter med skons storlekstabell. För en huvtröja, mät bröstvidd, ärmlängd och plagglängd på ett plagg som redan passar. Kontrollera om tabellen anger mått på kroppen eller på plagget när det ligger plant.</p>
+        </article>
+        <article>
+          <h3>YoyBuy QC och lagerbilder</h3>
+          <p>Jämför bilderna med beställd färg och storlek. För skor, be vid behov om en bild av storleksetiketten och sulan. För en keps kan en närbild av justeringen baktill vara viktigare än ännu en frontbild. Kontrollera vilka extra bilder som går att beställa och vilken tidsfrist som gäller för retur.</p>
+        </article>
+        <article>
+          <h3>YoyBuy frakt till Sverige</h3>
+          <p>Skriv ned varans pris, inrikes frakt i Kina, eventuella agentavgifter och uppskattad internationell frakt. När paketet är packat, jämför faktisk vikt med volymvikt och se vilken vikt fraktalternativet räknar på. Kontrollera valutakursen till SEK och om importkostnader kan tillkomma.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="examples">
+      <h2 id="examples">Material och detaljer att jämföra</h2>
+      <div class="grid gallery">
+        <figure>
+          <img src="https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-graphic-jacquard-hoodie--HSN83WSDL900_PM2_Front%20view.jpg?wid=384" width="384" height="384" loading="lazy" decoding="async" alt="Louis Vuitton Graphic Jacquard Hoodie sedd framifrån">
+          <figcaption>Louis Vuitton · Mönster och passform</figcaption>
+        </figure>
+        <figure>
+          <img src="https://img.mytheresa.com/512/512/66/jpeg/catalog/product/8e/P01134147.jpg" width="512" height="512" loading="lazy" decoding="async" alt="Beige Gucci GG Supreme-keps med monogram">
+          <figcaption>Gucci · Kepsens skärm och form</figcaption>
+        </figure>
+        <figure>
+          <img src="https://abigail-goodman.com/cdn/shop/files/IMG_1525-Edit_6f4cd31d-57ec-4e02-9373-eac06eb56e38.jpg?v=1779425072&amp;width=480" width="480" height="480" loading="lazy" decoding="async" alt="Hermès Brides de Gala Forever 90, mönstrad sidensjal">
+          <figcaption>Hermès · Siden och mönster</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.popchill.com/products/23011578550395/16737905514567_0483.jpg" width="480" height="480" loading="lazy" decoding="async" alt="Guldfärgat Dior Clair D Lune-armband">
+          <figcaption>Dior · Lås och kedja</figcaption>
+        </figure>
+      </div>
+      <p class="note">Bilderna visar exempel på detaljer att jämföra. Aktuellt utbud framgår av katalogen.</p>
+    </section>
+
+    <section aria-labelledby="faq">
+      <h2 id="faq">Vanliga frågor</h2>
+      <details open>
+        <summary>Vad är ett YoyBuy spreadsheet?</summary>
+        <p>Det är en sammanställning av produktlänkar och anteckningar som hjälper dig att hitta och jämföra varor. Kontrollera alltid den aktuella varianten i säljarens annons.</p>
+      </details>
+      <details>
+        <summary>Hur kontrollerar jag storleken före köp?</summary>
+        <p>Mät ett plagg eller en sko som passar och jämför måtten i centimeter med säljarens tabell för den variant du valt.</p>
+      </details>
+      <details>
+        <summary>Vad visar QC-bilder från lagret?</summary>
+        <p>De kan visa synliga detaljer som färg, etiketter och sömmar. För äkthet behövs separat dokumentation från en tillförlitlig källa.</p>
+      </details>
+      <details>
+        <summary>Hur jämför jag frakt till Sverige?</summary>
+        <p>Ange Sverige som destination och jämför alternativ med paketets vikt och yttermått. Kontrollera vilka avgifter som ingår och vad som kan tillkomma vid import.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Oberoende köpguide. Kategorilänkarna leder till CAFANS. <a href="https://www.cafans.com">Besök CAFANS</a>.</div>
+  </footer>
+</body>
+</html>
